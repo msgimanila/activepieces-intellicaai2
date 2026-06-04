@@ -22,4 +22,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/YOUR_GITHUB_USERNAME/activepieces-custom:latest
+          tags: ghcr.io/msgimanila/activepieces-intellicaai2:latest
