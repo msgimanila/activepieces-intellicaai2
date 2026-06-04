@@ -7,6 +7,7 @@ const FullLogo = () => {
 
   return (
     <div className="h-[60px]">
+      INTELLICAAI
       <img
         className="h-full"
         src={branding.logos.fullLogoUrl}
