@@ -55,7 +55,7 @@ export const AppSidebarHeader = () => {
           <SidebarLogoCollapsed linkTo={defaultRoute} />
           {state !== 'collapsed' && (
             <h1 className="truncate text-sm font-medium">
-              {branding.websiteName}
+              IntelliCAI
             </h1>
           )}
         </div>
