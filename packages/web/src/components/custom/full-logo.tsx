@@ -6,7 +6,7 @@ const FullLogo = () => {
   const branding = flagsHooks.useWebsiteBranding();
 
   return (
-    <div className="h-[60px]">
+    <div className="h-[60px]"> 
       INTELLICAAI
       <img
         className="h-full"
