@@ -48,8 +48,8 @@ RUN --mount=type=cache,target=/root/.npm \
     typescript@4.9.4 \
     esbuild@0.25.0
 
-RUN --mount=type=cache,target=/root/.bun/install/cache \
-    cd /usr/src && bun install isolated-vm@6.0.2
+# ✅ FIXED: Removed the standalone cache layer for isolated-vm. 
+# It will be installed cleanly inside the monorepo context.
 
 ### STAGE 1: Build ###
 FROM base AS build
@@ -59,8 +59,9 @@ WORKDIR /usr/src/app
 COPY .npmrc package.json bun.lock bunfig.toml ./
 COPY packages/ ./packages/
 
+# ✅ FIXED: Added --no-cache flag to break the corrupted cache loop for this run
 RUN --mount=type=cache,target=/root/.bun/install/cache \
-    bun install --frozen-lockfile
+    bun install --frozen-lockfile --no-cache
 
 COPY . .
 
@@ -79,7 +80,7 @@ RUN rm -rf packages/pieces/core packages/pieces/custom && \
       ! -name facebook-leads \
       ! -name intercom \
       -exec rm -rf {} + && \
-    rm -f bun.lock && bun install
+    rm -f bun.lock && bun install --no-cache
 
 ### STAGE 2: Run ###
 FROM base AS run
@@ -100,11 +101,10 @@ COPY --from=build /usr/src/app/bunfig.toml ./
 COPY --from=build /usr/src/app/LICENSE .
 
 COPY --from=build /usr/src/app/packages ./packages
-
 COPY --from=build /usr/src/app/dist/packages/engine/ ./dist/packages/engine/
 
 RUN --mount=type=cache,target=/root/.bun/install/cache \
-    bun install --production
+    bun install --production --no-cache
 
 COPY --from=build /usr/src/app/dist/packages/web ./dist/packages/web/
 
