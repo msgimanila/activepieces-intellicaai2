@@ -11,8 +11,8 @@ import customHtmlPlugin from './vite-plugins/html-plugin';
 export default defineConfig(({ command, mode }) => {
   const isDev = command === 'serve' || mode === 'development';
 
-  const AP_TITLE = 'Activepieces';
-  const AP_FAVICON = 'https://activepieces.com/favicon.ico';
+  const AP_TITLE = 'IntelliCAAI';
+  const AP_FAVICON = 'https://intellicaai.space/wp-content/uploads/2026/05/favicon-32x32-1.png';
 
   return {
     root: __dirname,
