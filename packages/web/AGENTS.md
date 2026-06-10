@@ -4,7 +4,7 @@ You are working in the Activepieces web application (`packages/web`).
 
 ## Tech Stack
 
-- **Framework**: React 18 with React Router v6
+- **Framework**: React 18 with React Router v6 
 - **Build**: Vite
 - **UI Components**: Shadcn/Radix UI (`src/components/ui/`)
 - **State Management**: Zustand
