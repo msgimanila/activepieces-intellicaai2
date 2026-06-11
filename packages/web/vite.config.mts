@@ -12,7 +12,7 @@ export default defineConfig(({ command, mode }) => {
   const isDev = command === 'serve' || mode === 'development';
 
   const AP_TITLE = 'IntelliCAAI';
-  const AP_FAVICON = 'https://intellicaai.space/wp-content/uploads/2026/05/favicon-32x32-1.png';
+  const AP_FAVICON = 'https://workflow.intellicaai.space/favicon.ico';
 
   return {
     root: __dirname,
