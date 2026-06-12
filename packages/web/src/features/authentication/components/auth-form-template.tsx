@@ -161,7 +161,7 @@ const AuthLayout = ({
       {/* Right side — animation for sign-up, image for sign-in */}
       <div className="hidden lg:flex w-1/2 py-5 pr-5">
         <div className="relative w-full h-full rounded-2xl overflow-hidden bg-muted">
-          {isSignUp ? <AuthAnimation /> : <AuthImage />}
+          {isSignUp ? <AuthAnimation /> : <AuthAnimation /> }
         </div>
       </div>
     </div>
