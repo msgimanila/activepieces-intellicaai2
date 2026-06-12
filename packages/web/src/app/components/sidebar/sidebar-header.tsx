@@ -28,12 +28,7 @@ function SidebarLogoCollapsed({ linkTo }: { linkTo?: string }) {
       onClick={() => navigate(linkTo || '/')}
       className="h-10! w-8! p-0! group-data-[collapsible=icon]:h-10! items-center justify-center"
     >
-      <img
-        src={branding.logos.logoIconUrl}
-        alt={t('home')}
-        className="h-5! w-5! shrink-0"
-        draggable={false}
-      />
+       
     </Button>
   );
 }
