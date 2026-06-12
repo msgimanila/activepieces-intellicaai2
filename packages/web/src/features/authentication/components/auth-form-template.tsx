@@ -181,7 +181,7 @@ const AuthFormTemplate = React.memo(
     );
     const data = {
       signin: {
-        title: t('Welcome back'),
+        title: t('BUILD YOUR AI AGENT & AUTOMATIONS'),
         description: t('Sign in to pick up where you left off.'),
       },
       signup: {
