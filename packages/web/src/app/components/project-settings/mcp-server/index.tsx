@@ -49,7 +49,7 @@ export const McpServerSettings = () => {
               </h3>
               <p className="text-sm text-muted-foreground mb-3">
                 {t(
-                  'Control which built-in Activepieces tools are available to agents via this MCP server.',
+                  'Control which built-in Intellicaai tools are available to agents via this MCP server.',
                 )}
               </p>
               <McpTools
