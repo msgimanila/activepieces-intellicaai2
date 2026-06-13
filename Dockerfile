@@ -65,7 +65,7 @@ RUN --mount=type=cache,target=/root/.bun/install/cache \
 
 COPY . .
 
-
+RUN npx turbo run build --filter=web --filter=@activepieces/engine --filter=api --filter=worker
 
 RUN node -e "\
   const {getMigrations} = require('./packages/server/api/dist/src/app/database/postgres-connection');\
