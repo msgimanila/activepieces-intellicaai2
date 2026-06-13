@@ -117,14 +117,14 @@ const TemplatesPage = () => {
                       <Button
                         variant="link"
                         className="text-muted-foreground hover:text-primary p-0 h-auto font-medium"
-                        onClick={() => navigate('/pricing')}
+                        onClick={() => navigate('/custompage')}
                       >
-                        {t('View Pricing')}
+                        {t('Pro Templates')}
                       </Button>
                       <Button
                         variant="link"
                         className="text-muted-foreground hover:text-primary p-0 h-auto font-medium"
-                        onClick={() => window.open('https://yourdocumentation.com', '_blank')}
+                        onClick={() => window.open('https://intellicaai.space/documentation', '_blank')}
                       >
                         {t('Help Docs')}
                       </Button>
