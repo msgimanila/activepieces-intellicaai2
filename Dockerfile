@@ -65,7 +65,8 @@ RUN --mount=type=cache,target=/root/.bun/install/cache \
 
 COPY . .
 
-RUN npx turbo run build --filter=web --filter=@activepieces/engine --filter=api --filter=worker
+RUN npx @tanstack/react-router-cli generate && \
+    npx turbo run build --filter=web --filter=@activepieces/engine --filter=api
 
 RUN node -e "\
   const {getMigrations} = require('./packages/server/api/dist/src/app/database/postgres-connection');\
