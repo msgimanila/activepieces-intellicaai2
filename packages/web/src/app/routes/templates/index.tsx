@@ -111,6 +111,25 @@ const TemplatesPage = () => {
                     placeholder={t('Search templates by name or description')}
                   ></SearchInput>
                   <div className="flex flex-row justify-end w-[50%]">
+
+                     {/* 👇 START OF CUSTOM LINKS */}
+                    <div className="flex flex-row gap-4 items-center mr-2">
+                      <Button
+                        variant="link"
+                        className="text-muted-foreground hover:text-primary p-0 h-auto font-medium"
+                        onClick={() => navigate('/pricing')}
+                      >
+                        {t('View Pricing')}
+                      </Button>
+                      <Button
+                        variant="link"
+                        className="text-muted-foreground hover:text-primary p-0 h-auto font-medium"
+                        onClick={() => window.open('https://yourdocumentation.com', '_blank')}
+                      >
+                        {t('Help Docs')}
+                      </Button>
+                    </div>
+                    {/* 👆 END OF CUSTOM LINKS */}
                     <Button
                       variant="outline"
                       className="gap-2 h-full"
