@@ -1,6 +1,6 @@
 FROM node:24.14.0-bullseye-slim AS base
 
-ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8
+ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8 
 
 # Layer 1: Install system binaries (Cached, only runs once)
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
