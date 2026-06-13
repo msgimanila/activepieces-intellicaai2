@@ -33,7 +33,7 @@ WORKDIR /usr/src/app
 COPY .npmrc package.json bun.lock bunfig.toml ./
 COPY packages/web/package.json ./packages/web/
 COPY packages/server/api/package.json ./packages/server/api/
-COPY packages/engine/package.json ./packages/engine/
+COPY packages/server/engine/package.json ./packages/server/engine/
 
 # REMOVED --no-cache. Enabling cache drops install time from minutes to seconds.
 RUN --mount=type=cache,target=/root/.bun/install/cache \
