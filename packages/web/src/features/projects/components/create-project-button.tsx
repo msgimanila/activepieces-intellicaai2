@@ -44,7 +44,7 @@ function UpgradeTooltip({ children }: { children: React.ReactNode }) {
           <button
             className="text-xs text-primary underline hover:no-underline"
             onClick={() =>
-              window.open('https://www.activepieces.com/pricing', '_blank')
+              window.open('https://www.intellicaai.space/pricing', '_blank')
             }
           >
             {t('View Plans')}
