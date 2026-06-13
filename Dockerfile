@@ -37,7 +37,7 @@ COPY packages/server/engine/package.json ./packages/server/engine/
 
 # REMOVED --no-cache. Enabling cache drops install time from minutes to seconds.
 RUN --mount=type=cache,target=/root/.bun/install/cache \
-    bun install --frozen-lockfile
+    bun install
 
 # Now copy the code
 COPY . .
