@@ -1,5 +1,5 @@
 import {
-  Template,
+  Template, 
   TemplateTelemetryEventType,
   TemplateType,
   UncategorizedFolderId,
