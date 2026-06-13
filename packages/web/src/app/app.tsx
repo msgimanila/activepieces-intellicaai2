@@ -14,6 +14,7 @@ import { EmbeddingFontLoader } from './components/embedding-font-loader';
 import { InitialDataGuard } from './components/initial-data-guard';
 import { ApRouter } from './guards';
 import { queryClient } from './query-client';
+import CustomPageModule from '@/modules/custom-pages/custompage';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -27,6 +28,8 @@ export function App() {
                 <TooltipProvider>
                   <React.Fragment key={i18n.language}>
                     <ThemeProvider storageKey="vite-ui-theme">
+                    
+<Route path="/custompage" element={<CustomPageModule />} />
                       <ApRouter />
                       <Toaster position="bottom-right" />
                       <ApErrorDialog />
