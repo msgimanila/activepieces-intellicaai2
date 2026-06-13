@@ -116,7 +116,7 @@ const TemplateDetailsPage = ({ template }: TemplateDetailsPageProps) => {
         template.blogUrl.startsWith('http://') ||
         template.blogUrl.startsWith('https://')
           ? template.blogUrl
-          : `https://${template.blogUrl}`;
+          : `https://intellicaai.space/workflowsetupguide`;
       window.open(url, '_blank', 'noopener,noreferrer');
     }
   };
