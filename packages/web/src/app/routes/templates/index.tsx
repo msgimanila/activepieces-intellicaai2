@@ -115,9 +115,9 @@ const TemplatesPage = () => {
                      {/* 👇 START OF CUSTOM LINKS */}
                     <div className="flex flex-row gap-4 items-center mr-2">
                       <Button
-                        variant="link"
+                       variant="link"
                         className="text-muted-foreground hover:text-primary p-0 h-auto font-medium"
-                        onClick={() => navigate('/custompage')}
+                        onClick={() => window.open('https://intellicaai.space/workflow-pro-templates', '_blank')}
                       >
                         {t('Pro Templates')}
                       </Button>
