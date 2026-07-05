@@ -1,4 +1,5 @@
-app:
+services:
+  app:
     build:
       context: .
       dockerfile: Dockerfile
@@ -29,3 +30,29 @@ app:
       - ./cache:/usr/src/app/cache
     networks:
       - activepieces
+  postgres:
+    image: 'pgvector/pgvector:0.8.0-pg14'
+    container_name: activepieces-postgres
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - 'POSTGRES_DB=${AP_POSTGRES_DATABASE}'
+      - 'POSTGRES_PASSWORD=${AP_POSTGRES_PASSWORD}'
+      - 'POSTGRES_USER=${AP_POSTGRES_USERNAME}'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - activepieces
+  redis:
+    image: 'redis:7.0.7'
+    container_name: activepieces-redis
+    restart: unless-stopped
+    volumes:
+      - 'redis_data:/data'
+    networks:
+      - activepieces
+volumes:
+  postgres_data:
+  redis_data:
+networks:
+  activepieces:
