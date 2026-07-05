@@ -1,6 +1,7 @@
-services:
-  app:
-    image: ghcr.io/msgimanila/activepieces-intellicaai2:main
+app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: activepieces-app
     restart: unless-stopped
     depends_on:
@@ -14,7 +15,9 @@ services:
     networks:
       - activepieces
   worker:
-    image: 'ghcr.io/msgimanila/activepieces-intellicaai2:main'
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: unless-stopped
     depends_on:
       - app
@@ -26,29 +29,3 @@ services:
       - ./cache:/usr/src/app/cache
     networks:
       - activepieces
-  postgres:
-    image: 'pgvector/pgvector:0.8.0-pg14'
-    container_name: activepieces-postgres
-    restart: unless-stopped
-    env_file: .env
-    environment:
-      - 'POSTGRES_DB=${AP_POSTGRES_DATABASE}'
-      - 'POSTGRES_PASSWORD=${AP_POSTGRES_PASSWORD}'
-      - 'POSTGRES_USER=${AP_POSTGRES_USERNAME}'
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - activepieces
-  redis:
-    image: 'redis:7.0.7'
-    container_name: activepieces-redis
-    restart: unless-stopped
-    volumes:
-      - 'redis_data:/data'
-    networks:
-      - activepieces
-volumes:
-  postgres_data:
-  redis_data:
-networks:
-  activepieces:
