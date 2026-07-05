@@ -14,11 +14,12 @@ services:
     networks:
       - activepieces
 worker:
-    image: ghcr.io/msgimanila/activepieces-intellicaai2:main
+    image: 'ghcr.io/msgimanila/activepieces-intellicaai2:main'
     restart: unless-stopped
     depends_on:
       - app
-    env_file: .env
+    env_file:
+      - .env
     environment:
       - AP_CONTAINER_TYPE=WORKER
     volumes:
