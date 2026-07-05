@@ -1,6 +1,6 @@
 services:
   app:
-    image: ghcr.io/msgimanila/activepieces-intellicaai2:main 
+    image: ghcr.io/msgimanila/activepieces-intellicaai2:main
     container_name: activepieces-app
     restart: unless-stopped
     depends_on:
@@ -13,7 +13,7 @@ services:
       - ./cache:/usr/src/app/cache
     networks:
       - activepieces
-worker:
+  worker:
     image: 'ghcr.io/msgimanila/activepieces-intellicaai2:main'
     restart: unless-stopped
     depends_on:
