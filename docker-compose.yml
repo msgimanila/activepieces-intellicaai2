@@ -1,10 +1,10 @@
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/activepieces/activepieces:0.83.0
     container_name: activepieces-app
     restart: unless-stopped
+    ports:
+      - '8080:80'
     depends_on:
       - postgres
       - redis
@@ -16,23 +16,22 @@ services:
     networks:
       - activepieces
   worker:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/activepieces/activepieces:0.83.0
     restart: unless-stopped
     depends_on:
       - app
-    env_file:
-      - .env
+    env_file: .env
     environment:
       - AP_CONTAINER_TYPE=WORKER
+    deploy:
+      replicas: 5
     volumes:
       - ./cache:/usr/src/app/cache
     networks:
       - activepieces
   postgres:
     image: 'pgvector/pgvector:0.8.0-pg14'
-    container_name: activepieces-postgres
+    container_name: postgres
     restart: unless-stopped
     env_file: .env
     environment:
@@ -45,7 +44,7 @@ services:
       - activepieces
   redis:
     image: 'redis:7.0.7'
-    container_name: activepieces-redis
+    container_name: redis
     restart: unless-stopped
     volumes:
       - 'redis_data:/data'
